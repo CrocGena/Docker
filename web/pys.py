@@ -1,5 +1,5 @@
 # users=[
-#     (0,'geno','kompiuterigen')
+#     (0,'geno','komp')
 # ]
 
 # username_mapping={user[1]:user for user in users}
@@ -19,9 +19,7 @@ app = Flask(__name__)
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    data = request.json  # Assuming the request body is in JSON format
-    # Process the data or perform any necessary operations
-    # ...
+    data = request.json  
 
     return 'Data received and processed successfully'
 
