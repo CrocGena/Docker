@@ -25,7 +25,7 @@ client = MongoClient("mongodb://db:27017")
 db = client.aNewDB
 UserNum = db["UserNum"]
 
-UserNum.insert({
+UserNum.insert_one({
     'num_of_users': 0
 })
 
@@ -33,7 +33,7 @@ class Visit(Resource):
     def get(self):
         pre_num = UserNum.find({})[0]["num_of_users"]
         new_num = 1 + pre_num
-        UserNum.update({}, {"$set": {"num_of_users": new_num}})
+        UserNum.update_one({}, {"$set": {"num_of_users": new_num}})
         return "Hello user " + str(new_num)
 
 api.add_resource(Visit, "/hello")
