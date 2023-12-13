@@ -21,7 +21,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 api = Api(app)
 
-client = MongoClient("mongodb://127.0.0.1:27017")
+client = MongoClient("mongodb://db:27017")
 db = client.aNewDB
 UserNum = db["UserNum"]
 
@@ -50,6 +50,6 @@ def hello_world():
     return "Hello, world!"
 
 
-api.add_resource[Visit, "/hello"]
+api.add_resource(Visit, "/hello")
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
