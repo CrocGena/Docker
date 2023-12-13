@@ -36,7 +36,7 @@ class Visit(Resource):
         UserNum.update_one({}, {"$set": {"num_of_users": new_num}})
         return "Hello user " + str(new_num)
 
-api.add_resource(Visit, "/hello")
+
 
 
 @app.route('/submit', methods=['POST'])
@@ -50,6 +50,6 @@ def hello_world():
     return "Hello, world!"
 
 
-api.add_resources[Visit, "/hello"]
+api.add_resource[Visit, "/hello"]
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
